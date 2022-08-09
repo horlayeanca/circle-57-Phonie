@@ -10,7 +10,33 @@ const glo_pref = [0805, 0807, 0811, 0705, 0815, 0905]
 const airtel_pref = [0808, 0802, 0708, 0701, 0902, 0901, 0907, 0812]
 const etisalat_pref = [0809, 0817, 0818, 0908, 0909]
 
-document.querySelector(".container").style.display = "flex"
+// card styling
+
+document.querySelector("#card").style.display = "none"
+
+document.getElementById("submit").addEventListener("click", (e) => {
+  e.preventDefault()
+  if (!tel.value) {
+    alert("Please fill all fields")
+  } else {
+    document.querySelector(".container").style.display = "none"
+    document.querySelector("#card").style.display = "flex"
+    document.querySelector("#display_name").innerHTML = username.value
+    document.querySelector("#display_tel").innerHTML = telInput.value
+  }
+})
+
+display_name.style.color = "#662e5f"
+display_tel.style.color = "#662e5f"
+display_name.style.fontSize = "25px"
+display_tel.style.fontSize = "25px"
+
+document.getElementById("close").addEventListener("click", () => {
+  document.querySelector(".container").style.display = "flex"
+  document.querySelector("#card").style.display = "none"
+})
+
+
 // Validation
 
 const validate = () => {
