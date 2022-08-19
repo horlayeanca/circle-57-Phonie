@@ -54,29 +54,38 @@ const validate = () => {
 // checking condition
 
 const checkPrefix = () => {
-  let phone = `0${telInput.value.slice(0, 4)
-    }`
+  let phone = `0${~~telInput.value.slice(0, 4)}`
   phoneNum = Number(phone)
-  if (mtn_pref.includes(phoneNum)) {
-    telDisplay.innerHTML = "This is an MTN number."
-    telDisplay.style.color = "yellow"
-    img.src = "./img/mtn.svg"
-  } else if (glo_pref.includes(phoneNum)) {
-    telDisplay.innerHTML = "This is a GLO number."
-    telDisplay.style.color = "green"
-    img.src = "./img/Glo.svg"
-  } else if (airtel_pref.includes(phoneNum)) {
-    telDisplay.innerHTML = "This is an Airtel number."
-    telDisplay.style.color = "red"
-    img.src = "./img/airtel.svg"
-  } else if (etisalat_pref.includes(phoneNum)) {
-    telDisplay.innerHTML = "This is a 9mobile number."
-    telDisplay.style.color = "green"
-    img.src = "./img/9mobile.svg"
-  } else {
-    telDisplay.innerHTML = ""
-    img.src = "./img/AltSchool.svg"
-  }
+  return phoneNum
+}
+switch (checkPrefix) {
+  case mtn_pref:
+    (mtn_pref.includes(phoneNum))
+    telDisplay.innerHTML = 'This is an MTN Number.'
+    telDisplay.style.color = 'yellow'
+    img.src = './img/mtn.svg'
+    break
+  case glo_pref:
+    glo_pref.includes(phoneNum)
+    telDisplay.innerHTML = 'This is a Glo Number.'
+    telDisplay.style.color = 'green'
+    img.src = './img/Glo.svg'
+    break
+  case airtel_pref:
+    (airtel_pref.value(phone))
+    telDisplay.innerHTML = 'This is an Airtel Number.'
+    telDisplay.style.color = 'red'
+    img.src = './img/airtel.svg'
+    break
+  case etisalat_pref:
+    (etisalat_pref.includes(phoneNum))
+    telDisplay.innerHTML = 'This is an Etisalat Number.'
+    telDisplay.style.color = 'green'
+    img.src = './img/9mobile.svg'
+    break
+  default:
+    telDisplay.innerHTML = ''
+    img.src = './img/AltSchool.svg'
 }
 
 telInput.addEventListener("input", () => {
